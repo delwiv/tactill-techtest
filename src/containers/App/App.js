@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 // import { connect } from 'react-redux';
 import { IndexLink } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
-import NavItem from 'react-bootstrap/lib/NavItem';
+// import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
 import config from '../../config';
 // import { asyncConnect } from 'redux-async-connect';
 
@@ -33,9 +32,9 @@ injectTapEventPlugin();
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
-    user: PropTypes.object,
-    logout: PropTypes.func.isRequired,
-    pushState: PropTypes.func.isRequired
+    // user: PropTypes.object,
+    // logout: PropTypes.func.isRequired,
+    // pushState: PropTypes.func.isRequired
   };
 
   static contextTypes = {
@@ -61,9 +60,9 @@ export default class App extends Component {
 
           <Navbar.Collapse eventKey={0}>
             <Nav navbar>
-              <LinkContainer to="/about">
+              {/* <LinkContainer to="/about">
                 <NavItem eventKey={4}>About Us</NavItem>
-              </LinkContainer>
+              </LinkContainer>*/}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

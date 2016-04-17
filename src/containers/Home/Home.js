@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
 // import { CounterButton, GithubButton } from 'components';
+import { Post } from 'components';
 import config from '../../config';
 import Helmet from 'react-helmet';
 
@@ -36,6 +37,13 @@ export default class Home extends Component {
         </div>
 
         <div className="container">
+            <Post post={{
+                title: 'Discours sur l\'inégalité entre les hommes',
+                body: 'pretty long story, bro',
+                author: {
+                    name: 'Jean Jaques Rousseau'
+                }
+            }} />
         </div>
       </div>
     );
