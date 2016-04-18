@@ -37,11 +37,11 @@ export default class TextEditor extends Component {
                     onChange={this.onEditorChange.bind(this)}
                     theme={this.state.theme}
                     value={this.state.value}>
-                    <ReactQuill.Toolbar
+                    {!this.props.readOnly && <ReactQuill.Toolbar
                         className={styles.toolbar}
                         key="toolbar"
                         ref="toolbar"
-                        items={ReactQuill.Toolbar.defaultItems} />
+                        items={ReactQuill.Toolbar.defaultItems} />}
                     <div key="editor"
                         ref="editor"
                         className="quill-contents"

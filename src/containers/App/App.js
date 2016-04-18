@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import { connect } from 'react-redux';
 import { IndexLink } from 'react-router';
 // import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
@@ -8,42 +7,30 @@ import Nav from 'react-bootstrap/lib/Nav';
 import Helmet from 'react-helmet';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import config from '../../config';
-// import { asyncConnect } from 'redux-async-connect';
 
-// @asyncConnect([{
-//   promise: ({store: {dispatch, getState}}) => {
-//     const promises = [];
-//
-//     // if (!isInfoLoaded(getState())) {
-//     //   promises.push(dispatch(loadInfo()));
-//     // }
-//     // if (!isAuthLoaded(getState())) {
-//     //   promises.push(dispatch(loadAuth()));
-//     // }
-//
-//     return Promise.all(promises);
-//   }
-// }])
-// @connect(
-//   state => ({user: state.auth.user}),
-//   {logout, pushState: routeActions.push})
 injectTapEventPlugin();
 
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.object.isRequired,
-    // user: PropTypes.object,
-    // logout: PropTypes.func.isRequired,
-    // pushState: PropTypes.func.isRequired
+    // getAll: PropTypes.func,
+    init: PropTypes.func,
+    space: PropTypes.object
   };
 
   static contextTypes = {
     store: PropTypes.object.isRequired
   };
+  // componentWillReceiveProps(nextProps) {
+  //     console.log(nextProps);
+  //     if (!this.props.space && nextProps.space) {
+  //       this.props.getAll();
+  //   }
+  // }
 
   render() {
     const styles = require('./App.scss');
-
+    console.log(this.state);
     return (
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
@@ -68,9 +55,9 @@ export default class App extends Component {
         </Navbar>
 
         <div className={styles.appContent}>
+            {/* <input type="button" onClick={this.props.getAll.bind(this, this.state.space)} value="Fetch !"/>*/}
           {this.props.children}
         </div>
-        {/* <InfoBar/>*/}
 
         <div className="well text-center">
           You'll find source code <a

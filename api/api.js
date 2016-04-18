@@ -7,7 +7,15 @@ import config from '../src/config';
 // import PrettyError from 'pretty-error';
 import http from 'http';
 import SocketIo from 'socket.io';
+import posts from './posts';
 
+import Promise from 'bluebird';
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://localhost/tactill');
+
+
+// global.Promise = Promise;
 // const pretty = new PrettyError();
 const app = express();
 
@@ -24,6 +32,7 @@ app.use(session({
 }));
 app.use(bodyParser.json());
 
+app.use('/posts', posts);
 
 // app.use((req, res) => {
 //     const splittedUrlPath = req.url.split('?')[0].split('/').slice(1);
